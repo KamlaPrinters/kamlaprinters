@@ -3,162 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamla Printers & Stationers | Kota</title>
+    <title>Kamla Printers & Stationers | Kota's Premier Printing Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #002c52;
-            --accent: #d4af37;
-            --light: #f4f7f6;
-            --dark: #333;
+            --brand-blue: #0f172a;
+            --brand-gold: #fbbf24;
+            --text-main: #334155;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body { line-height: 1.6; color: var(--dark); background-color: white; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
 
-        /* Navigation */
+        /* --- Navigation --- */
         nav {
-            background: var(--primary);
-            color: white;
-            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
 
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--brand-blue); letter-spacing: -0.5px; }
+        .logo span { color: var(--brand-gold); }
 
-        /* Hero Section */
-        header {
-            background: linear-gradient(rgba(0,44,82,0.8), rgba(0,44,82,0.8)), url('https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&q=80&w=1600');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
+        .nav-contact {
+            background: var(--brand-blue);
             color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .nav-contact:hover { background: var(--brand-gold); color: var(--brand-blue); }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
             align-items: center;
-            text-align: center;
-            padding: 0 20px;
+            padding: 0 8%;
+            gap: 40px;
+            background: var(--bg-light);
         }
 
-        header h1 { font-size: 3rem; margin-bottom: 10px; }
-        header p { font-size: 1.2rem; max-width: 600px; }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            color: var(--brand-blue);
+            margin-bottom: 1.5rem;
+        }
 
-        /* Sections */
-        section { padding: 60px 10%; }
-        .section-title { text-align: center; margin-bottom: 40px; color: var(--primary); }
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #64748b;
+        }
 
-        /* Services Grid */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .service-card {
-            background: var(--light);
-            padding: 30px;
+        .hero-image {
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000') no-repeat center;
+            background-size: cover;
+            border-radius: 24px;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+        }
+
+        /* --- Services --- */
+        .section { padding: 80px 8%; }
+        .center-title { text-align: center; margin-bottom: 50px; }
+        .center-title h2 { font-size: 2.5rem; color: var(--brand-blue); }
+        .center-title p { color: var(--brand-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            padding: 40px;
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: var(--brand-gold);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: var(--brand-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 { margin-bottom: 1rem; color: var(--brand-blue); }
+
+        /* --- Contact Area --- */
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            background: var(--brand-blue);
+            color: white;
+            padding: 60px;
+            border-radius: 24px;
+        }
+
+        .contact-info h3 { font-size: 2rem; margin-bottom: 20px; }
+        .info-row { display: flex; align-items: flex-start; margin-bottom: 25px; gap: 15px; }
+        .info-row i { color: var(--brand-gold); font-size: 1.2rem; margin-top: 5px; }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
             border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .service-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--accent); }
-        .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
-
-        /* Contact Section */
-        .contact-container { display: flex; flex-wrap: wrap; gap: 40px; }
-        .contact-info, .contact-form { flex: 1; min-width: 300px; }
-
-        .info-item { margin-bottom: 20px; display: flex; align-items: center; }
-        .info-item i { font-size: 1.2rem; color: var(--primary); margin-right: 15px; width: 25px; }
-
-        form input, form textarea {
-            width: 100%; padding: 12px; margin-bottom: 15px;
-            border: 1px solid #ddd; border-radius: 4px;
         }
 
-        button {
-            background: var(--primary); color: white; border: none;
-            padding: 12px 30px; border-radius: 4px; cursor: pointer; font-size: 1rem;
+        .btn-submit {
+            background: var(--brand-gold);
+            color: var(--brand-blue);
+            border: none;
+            padding: 15px 40px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
         }
-        button:hover { background: var(--accent); }
 
-        footer { background: var(--primary); color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.9rem; }
 
-        @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            section { padding: 40px 5%; }
+        /* --- Mobile Responsive --- */
+        @media (max-width: 968px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 40px; }
+            .hero-image { height: 300px; order: -1; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .contact-wrap { grid-template-columns: 1fr; padding: 30px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Kamla Printers</div>
-        <div class="contact-btn"><i class="fas fa-phone"></i> +91 94141 79629</div>
+        <div class="logo">KAMLA <span>PRINTERS</span></div>
+        <a href="tel:9414179629" class="nav-contact"><i class="fas fa-phone-alt"></i> Call Now</a>
     </nav>
 
-    <header>
-        <h1>Kamla Printers & Stationers</h1>
-        <p>Your Trusted Partner for Quality Printing and Office Supplies in Kota Since 1985.</p>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Quality Printing <br>That Speaks Volumes.</h1>
+            <p>Serving Kota since 1985. From premium wedding cards to industrial-scale offset printing, we bring your ideas to paper with 40 years of expertise.</p>
+            <div style="display:flex; gap: 15px;">
+                <img src="https://img.icons8.com/color/48/000000/google-logo.png" width="24" height="24">
+                <span style="font-weight: 600;">Rated 4.6/5 by 100+ Customers</span>
+            </div>
+        </div>
+        <div class="hero-image"></div>
     </header>
 
-    <section id="services">
-        <h2 class="section-title">Our Expertise</h2>
-        <div class="services">
-            <div class="service-card">
-                <i class="fas fa-print"></i>
+    <section class="section">
+        <div class="center-title">
+            <p>Our Specialization</p>
+            <h2>What We Do Best</h2>
+        </div>
+        <div class="services-grid">
+            <div class="card">
+                <i class="fas fa-layer-group"></i>
                 <h3>Offset Printing</h3>
-                <p>High-quality books, pamphlets, journals, and bulk newspaper printing.</p>
+                <p>Bulk printing for textbooks, brochures, and newspapers with high-speed precision.</p>
             </div>
-            <div class="service-card">
-                <i class="fas fa-pen-nib"></i>
-                <h3>Graphic Design</h3>
-                <p>Professional layouts for visiting cards, wedding cards, and branding.</p>
+            <div class="card">
+                <i class="fas fa-id-card"></i>
+                <h3>Digital Solutions</h3>
+                <p>Urgent ID cards, color prints, and high-resolution graphic design services.</p>
             </div>
-            <div class="service-card">
-                <i class="fas fa-book"></i>
-                <h3>Stationery</h3>
-                <p>Premium office registers, files, folders, and school supplies.</p>
+            <div class="card">
+                <i class="fas fa-file-signature"></i>
+                <h3>Office Stationery</h3>
+                <p>Customized registers, files, folders, and bill books for corporate clients.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" style="background-color: var(--light);">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-container">
+    <section class="section" style="background: var(--bg-light);">
+        <div class="contact-wrap">
             <div class="contact-info">
-                <h3>Visit Our Store</h3>
-                <p style="margin-bottom: 25px;">Serving the community of Kota for over 4 decades with precision and care.</p>
+                <h3>Get in Touch</h3>
+                <p style="opacity: 0.7; margin-bottom: 30px;">Visit our facility in Gumanpura for samples and bulk pricing.</p>
                 
-                <div class="info-item">
-                    <i class="fas fa-location-dot"></i>
-                    <span>8, Shopping Centre, Near Water Tank, Gumanpura/Nayapura, Kota, Rajasthan 324007</span>
+                <div class="info-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Our Address</strong><br>
+                        8, Shopping Centre, Near Water Tank,<br>
+                        Gumanpura, Kota, Rajasthan 324007
+                    </div>
                 </div>
-                <div class="info-item">
+                
+                <div class="info-row">
                     <i class="fas fa-clock"></i>
-                    <span>Mon - Sat: 11:00 AM - 10:30 PM (Sun Closed)</span>
+                    <div>
+                        <strong>Business Hours</strong><br>
+                        Mon - Sat: 11:00 AM - 10:30 PM<br>
+                        <span style="color: var(--brand-gold)">Sunday: Closed</span>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-user"></i>
-                    <span>Contact Person: Mr. S. P. Jain</span>
+
+                <div class="info-row">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Contact Number</strong><br>
+                        +91 94141 79629
+                    </div>
                 </div>
             </div>
 
             <div class="contact-form">
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea rows="5" placeholder="Your Printing Requirement (e.g., 500 Business Cards)"></textarea>
-                    <button type="submit">Send Inquiry</button>
+                <form action="#">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="tel" placeholder="Mobile Number" required>
+                    <select style="width:100%; padding:15px; margin-bottom:15px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:white; border-radius:8px;">
+                        <option style="color:black;">Select Service</option>
+                        <option style="color:black;">Bulk Printing</option>
+                        <option style="color:black;">Wedding/Visiting Cards</option>
+                        <option style="color:black;">Office Stationery</option>
+                    </select>
+                    <textarea rows="4" placeholder="Describe your requirement..."></textarea>
+                    <button type="submit" class="btn-submit">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Kamla Printers & Stationers, Kota. All Rights Reserved.</p>
+        <p>&copy; 2026 Kamla Printers & Stationers. All Rights Reserved. <br> Serving Kota's Printing needs for 40+ Years.</p>
     </footer>
 
 </body>
